@@ -6,9 +6,22 @@ Console.WriteLine($"{persona_2.Nome} {persona_2.Cognome} è nato nell'anno: {per
 
 Persona[] listaPersone = [persona_1, persona_2 ];
 
-Console.WriteLine($"Ci sono {listaPersone.Length} persone nel database. Quale vuoi visualizzare?");
-int input = int.Parse(Console.ReadLine()!);
-input--;
+int personaScelta;
+while (true)
+{
+    Console.WriteLine($"Ci sono {listaPersone.Length} persone nel database. Quale vuoi visualizzare?");
+    string? input = Console.ReadLine();
 
-Console.WriteLine($"Hai deciso di visualizzare: {listaPersone[input].Nome}");
-Console.WriteLine($"{listaPersone[input].Nome} {listaPersone[input].Cognome} è nato nell'anno: {listaPersone[input].AnnoNascita}");
+    if (int.TryParse(input, out personaScelta)
+        && personaScelta >= 0
+        && personaScelta <= listaPersone.Length)
+    {
+        personaScelta--;
+        break;
+    }
+    else
+        Console.WriteLine($"Input non valido. Sono presenti {listaPersone.Length} persone nel database");
+}
+
+Console.WriteLine($"Hai deciso di visualizzare: {listaPersone[personaScelta].Nome}");
+Console.WriteLine($"{listaPersone[personaScelta].Nome} {listaPersone[personaScelta].Cognome} è nato nell'anno: {listaPersone[personaScelta].AnnoNascita}");
