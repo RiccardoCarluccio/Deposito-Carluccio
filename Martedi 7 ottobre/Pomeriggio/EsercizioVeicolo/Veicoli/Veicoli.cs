@@ -3,11 +3,6 @@
     public string Marca;
     public string Modello;
 
-    public virtual void StampaInfo()
-    {
-        Console.WriteLine($"Marca: {Marca}, Modello: {Modello}");
-    }
-
     public virtual void AggiungiVeicolo()
     {
         Console.Write("\nInserisci la marca: ");
@@ -21,10 +16,9 @@ public class Auto : Veicolo
 {
     public int NumeroPorte;
 
-    public override void StampaInfo()
+    public override string ToString()
     {
-        base.StampaInfo();
-        Console.WriteLine($"Numero Porte: {NumeroPorte}");
+        return $"Marca: {Marca}, Modello: {Modello}, Numero Porte: {NumeroPorte}";
     }
 
     public override void AggiungiVeicolo()
@@ -39,10 +33,9 @@ public class Moto : Veicolo
 {
     public string TipoManubrio;
 
-    public override void StampaInfo()
+    public override string ToString()
     {
-        base.StampaInfo();
-        Console.WriteLine($"Tipo Manubrio: {TipoManubrio}");
+        return $"Marca: {Marca}, Modello: {Modello}, Tipo Manubrio: {TipoManubrio}";
     }
 
     public override void AggiungiVeicolo()

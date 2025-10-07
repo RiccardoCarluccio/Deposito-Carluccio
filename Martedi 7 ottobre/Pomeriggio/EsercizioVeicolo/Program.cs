@@ -45,7 +45,7 @@ do
             else
             {
                 foreach (var veicolo in veicoli)
-                    veicolo.StampaInfo();
+                    Console.WriteLine(veicolo);
                 Console.WriteLine("\n\n");
             }
             break;
