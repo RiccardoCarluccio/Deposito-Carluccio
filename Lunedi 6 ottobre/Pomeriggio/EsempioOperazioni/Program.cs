@@ -26,6 +26,6 @@ while (true)
         Console.WriteLine("Input non valido. Inserisci un numero intero");
 }
 
-operazioni.StampaRisultato("Somma",operazioni.Somma(numero_1, numero_2));
+operazioni.StampaRisultato("Somma", operazioni.Somma(numero_1, numero_2));
 
 operazioni.StampaRisultato("Moltiplicazione", operazioni.Moltiplica(numero_1, numero_2));
