@@ -1,43 +1,17 @@
 ﻿using EsercizioCorsi.Corsi;
+using EsercizioCorsi.Dati;
 using EsercizioCorsi.Estensioni;
 
-List<string> studentiMusicaMandolino =
-[
-    "Elena", "Valerio", "Valentina"
-];
-
-List<string> studentiPitturaImpressionismo =
-[
-    "Simone", "Lorenzo", "Pietro"
-];
-
-List<string> studentiDanzaClassica =
-[
-    "Andrea", "Marco", "Salvatore"
-];
-
 int indice = 3;
-
-List<CorsoBase> corsi = new List<CorsoBase>();
-
-CorsoMusica corsoMusicaMandolino = new CorsoMusica(
-    1, "Corso di Mandolino", 900, "Marco Bianchi", studentiMusicaMandolino, "Mandolino");
-
-CorsoPittura corsoPitturaImpressionismo = new CorsoPittura(
-    2, "Corso di Impressionismo", 900, "Paolo Rossi", studentiPitturaImpressionismo, "Impressionismo");
-
-CorsoDanza corsoDanzaClassica = new CorsoDanza(
-    3, "Corso di Danza Classica", 900, "Giovanni Verdi", studentiDanzaClassica, "Classico");
-
-corsi.Add(corsoMusicaMandolino);
-corsi.Add(corsoPitturaImpressionismo);
-corsi.Add(corsoDanzaClassica);
 
 int input;
 int indiceCorso;
 CorsoBase? corsoSelezionato;
+
+List<CorsoBase> corsi = new List<CorsoBase>(DatiIniziali.ListaCorsi.corsi);
+
 do
-{                                                           //aggiungere i check con i TryParse()
+{
     Console.WriteLine("Seleziona l'operazione:\n" +
         "1. Aggiungi un corso di Musica\n" +
         "2. Aggiungi un corso di Pittura\n" +
