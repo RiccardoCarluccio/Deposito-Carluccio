@@ -10,15 +10,20 @@ public class Artigliere : Soldato
         set { calibro = value; }
     }
 
-    public Artigliere(string nome, string grado, int anniServizio, int calibro)
-        : base(nome, grado, anniServizio)
+    public Artigliere(string nazione, string nome, string grado, int anniServizio, int calibro)
+        : base(nazione, nome, grado, anniServizio)
     {
         Calibro = calibro;
     }
 
-    public override void Descrizione()
+    public override string ToString()
     {
-        base.Descrizione();
-        Console.WriteLine($"Calibro: {Calibro}");
+        return
+            "\n" +
+            $"Nazione: {Nazione}\n" +
+            $"Nome soldato: {Nome}\n" +
+            $"Grado: {Grado}\n" +
+            $"Anni di servizio: {AnniServizio}\n" +
+            $"Calibro: {Calibro}\n";
     }
 }

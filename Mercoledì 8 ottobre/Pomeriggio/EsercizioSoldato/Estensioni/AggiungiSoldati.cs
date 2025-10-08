@@ -6,6 +6,8 @@ public static class AggiungiSoldati
 {
     public static Fante AggiungiFante()
     {
+        Console.WriteLine("Inserisci la nazione del soldato");
+        string nazione = Console.ReadLine()!;
         Console.WriteLine("Inserisci il nome del soldato");
         string nome = Console.ReadLine()!;
         Console.WriteLine("Inserisci il grado del soldato");
@@ -15,11 +17,13 @@ public static class AggiungiSoldati
         Console.WriteLine("Inserisci l'arma");
         string arma = Console.ReadLine()!;
 
-        return new Fante(nome, grado, anniServizio, arma);
+        return new Fante(nazione, nome, grado, anniServizio, arma);
     }
 
     public static Artigliere AggiungiArtigliere()
     {
+        Console.WriteLine("Inserisci la nazione del soldato");
+        string nazione = Console.ReadLine()!;
         Console.WriteLine("Inserisci il nome del soldato");
         string nome = Console.ReadLine()!;
         Console.WriteLine("Inserisci il grado del soldato");
@@ -29,6 +33,6 @@ public static class AggiungiSoldati
         Console.WriteLine("Inserisci l'arma");
         int calibro = int.Parse(Console.ReadLine()!);
 
-        return new Artigliere(nome, grado, anniServizio, calibro);
+        return new Artigliere(nazione, nome, grado, anniServizio, calibro);
     }
 }

@@ -10,22 +10,17 @@ public class Fante : Soldato
         set { arma = value; }
     }
 
-    public Fante(string nome, string grado, int anniServizio, string arma)
-        : base(nome, grado, anniServizio)
+    public Fante(string nazione, string nome, string grado, int anniServizio, string arma)
+        : base(nazione, nome, grado, anniServizio)
     {
         Arma = arma;
-    }
-
-    public override void Descrizione()
-    {
-        base.Descrizione();
-        Console.WriteLine($"Arma: {Arma}\n");
     }
 
     public override string ToString()
     {
         return
             "\n" +
+            $"Nazione: {Nazione}\n" +
             $"Nome soldato: {Nome}\n" +
             $"Grado: {Grado}\n" +
             $"Anni di servizio: {AnniServizio}\n" +

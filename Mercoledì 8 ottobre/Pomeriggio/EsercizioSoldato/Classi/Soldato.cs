@@ -1,6 +1,6 @@
 ﻿namespace EsercizioSoldato.Classi;
 
-public class Soldato
+public class Soldato : Esercito
 {
     private string nome;
     private string grado;
@@ -28,19 +28,12 @@ public class Soldato
         }
     }
 
-    public Soldato(string nome, string grado, int anniServizio)
+    public Soldato(string nazione, string nome, string grado, int anniServizio)
+        : base(nazione)
     {
         Nome = nome;
         Grado = grado;
         AnniServizio = anniServizio;
-    }
-
-    public virtual void Descrizione()
-    {
-        Console.WriteLine(
-            $"Nome soldato: {Nome}\n" +
-            $"Grado: {Grado}\n" +
-            $"Anni di servizio: {AnniServizio}\n");
     }
 
     public override string ToString()
