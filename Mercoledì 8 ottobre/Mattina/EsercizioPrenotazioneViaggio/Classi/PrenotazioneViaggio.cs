@@ -7,12 +7,12 @@ public class PrenotazioneViaggio
 
     public string Destinazione { get; set; }
 
-    int PostiDisponibili
+    public int PostiDisponibili
     {
         get { return maxPosti - postiPrenotati; }
     }
 
-    int PostiPrenotati
+    public int PostiPrenotati
     {
         get { return postiPrenotati; }
     }
