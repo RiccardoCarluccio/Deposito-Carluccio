@@ -40,19 +40,7 @@ do
             break;
 
         case 5:
-            Console.WriteLine("Inserisci il nome dell'operatore per saperne il compito");
-            string nomeOperatore = Console.ReadLine()!;
-            Console.WriteLine("");
-            var operatoreEsistente = operatori.FirstOrDefault(o => o.Nome == nomeOperatore);
-            if (operatoreEsistente is not null)
-            {
-                EseguiCompitoOperatore(operatoreEsistente);
-                Console.WriteLine("");
-            }
-            else
-            {
-                Console.WriteLine($"L'operatore di nome {nomeOperatore} non è stato trovato");
-            }
+            EseguiCompiti.MostraCompitoOperatore(operatori);
             break;
 
         case 0:
@@ -65,9 +53,3 @@ do
     }
 }
 while (input != 0);
-
-static void EseguiCompitoOperatore(Operatore operatore)
-{
-    operatore.EseguiCompito();
-    operatore.EseguiCompito(operatore.Nome);
-}

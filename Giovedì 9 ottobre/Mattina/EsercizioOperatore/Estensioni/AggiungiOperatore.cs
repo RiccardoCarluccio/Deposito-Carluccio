@@ -10,7 +10,7 @@ public static class AggiungiOperatore
         string nome = Console.ReadLine()!;
         Console.WriteLine("Inserisci il turno dell'operatore");
         string turno = Console.ReadLine()!;
-        Console.WriteLine("Inserisci il livello d'emergenza dell'operatore");
+        Console.WriteLine("Inserisci il livello d'emergenza dell'operatore (da 1 a 5)");
         int livelloUrgenza = int.Parse(Console.ReadLine()!);
 
         return new OperatoreEmergenza(nome, turno, livelloUrgenza);
@@ -22,7 +22,7 @@ public static class AggiungiOperatore
         string nome = Console.ReadLine()!;
         Console.WriteLine("Inserisci il turno dell'operatore");
         string turno = Console.ReadLine()!;
-        Console.WriteLine("Inserisci il livello d'emergenza dell'operatore");
+        Console.WriteLine("Inserisci l'area sorvegliata dell'operatore");
         string areaSorvegliata = Console.ReadLine()!;
 
         return new OperatoreSicurezza(nome, turno, areaSorvegliata);
@@ -34,7 +34,7 @@ public static class AggiungiOperatore
         string nome = Console.ReadLine()!;
         Console.WriteLine("Inserisci il turno dell'operatore");
         string turno = Console.ReadLine()!;
-        Console.WriteLine("Inserisci il livello d'emergenza dell'operatore");
+        Console.WriteLine("Inserisci il numero di consegne dell'operatore (minimo 0)");
         int numeroConsegne = int.Parse(Console.ReadLine()!);
 
         return new OperatoreLogistica(nome, turno, numeroConsegne);
