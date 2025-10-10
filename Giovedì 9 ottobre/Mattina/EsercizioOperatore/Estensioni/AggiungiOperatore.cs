@@ -4,6 +4,9 @@ namespace EsercizioOperatore.Estensioni;
 
 public static class AggiungiOperatore
 {
+    /// <summary>
+    /// Richiede una string nome, string turno di lavoro e int livello di urgenza, da console
+    /// </summary>
     public static OperatoreEmergenza AggiungiOperatoreEmergenza()
     {
         Console.WriteLine("Inserisci il nome dell'operatore");

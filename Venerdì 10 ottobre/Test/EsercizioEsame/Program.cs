@@ -21,7 +21,7 @@ do
         case 1:
             foreach (var animale in animali)
             {
-                Console.WriteLine(animale.ToString());
+                Console.WriteLine(animale);
                 //manca l'override del ToString() nelle classi richiamate per visualizzare le informazioni in modo corretto
             }
             break;
