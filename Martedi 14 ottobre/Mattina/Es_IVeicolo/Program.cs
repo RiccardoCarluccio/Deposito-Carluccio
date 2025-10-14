@@ -43,7 +43,7 @@ public class Camion : IVeicolo
     }
 }
 
-public class VeicoloFactory
+public abstract class VeicoloFactory
 {
     public static IVeicolo CreaVeicolo(string tipo)
     {
