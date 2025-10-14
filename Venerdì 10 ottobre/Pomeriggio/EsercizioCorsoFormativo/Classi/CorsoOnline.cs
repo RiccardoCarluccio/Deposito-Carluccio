@@ -36,16 +36,16 @@ public class CorsoOnline : Corso
 
     public override void ErogaCorso()
     {
-        throw new NotImplementedException();
+        throw new NotImplementedException();        //TODO
     }
     
     public override void StampaDettagli()
     {
-        throw new NotImplementedException();
+        throw new NotImplementedException();        //TODO
     }
 
     public override void StampaDettagli(Corso corso)
     {
-        throw new NotImplementedException();
+        throw new NotImplementedException();        //TODO
     }
 }

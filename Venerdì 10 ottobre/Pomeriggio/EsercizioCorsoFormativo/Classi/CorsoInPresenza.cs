@@ -41,13 +41,13 @@ public class CorsoInPresenza : Corso
 
     public override void StampaDettagli()
     {
-        Console.WriteLine($"Il corso da {Titolo} di durata di {DurataOre} ore" +
+        Console.WriteLine($"Il corso da {Titolo} di durata di {DurataOre} ore " +
             $"si svolge in aula {Aula} con {NumeroPosti} posti a sedere");
     }
 
     public override void StampaDettagli(Corso corso)
     {
-        Console.WriteLine($"Il corso da {corso.Titolo} di durata di {corso.DurataOre} ore" +
+        Console.WriteLine($"Il corso da {corso.Titolo} di durata di {corso.DurataOre} ore " +
             $"si svolge in aula {Aula} con {NumeroPosti} posti a sedere");
     }    
 }

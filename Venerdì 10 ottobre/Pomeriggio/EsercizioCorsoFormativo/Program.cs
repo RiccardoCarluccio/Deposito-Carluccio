@@ -1,5 +1,6 @@
 ﻿using EsercizioCorsoFormativo.Classi;
 using EsercizioCorsoFormativo.ClassiAstratte;
+using EsercizioCorsoFormativo.Estensioni;
 
 List<Corso> corsi = new()
 {
@@ -10,7 +11,7 @@ List<Corso> corsi = new()
 var corsoInPresenza = corsi[0];
 var corsoOnline = corsi[1];
 
-corsoInPresenza.StampaDettagli();
-corsoInPresenza.StampaDettagli(corsoInPresenza);
+
+StampaInformazioni.Stampa(corsoInPresenza);
 
 corsoOnline.ErogaCorso();
