@@ -33,16 +33,24 @@ public sealed class ConfigurazioneSistema
 
     public void Imposta(string chiave, string valore)
     {
-
+        config[chiave] = valore;
     }
 
     public string Leggi(string chiave)
     {
-
+        if (config.TryGetValue(chiave, out string? valore))
+        {
+            return $"{chiave}: {valore}";
+        }
+        else
+        {
+            return "(chiave non trovata)";
+        }
     }
 
     public void StampaTutte()
     {
-
+        foreach (var kvp in config)
+            Console.WriteLine($"{kvp.Key}: {kvp.Value}");
     }
 }
