@@ -1,4 +1,6 @@
-﻿namespace Es_Strategy.Strategies;
+﻿using Es_Strategy.Singleton;
+
+namespace Es_Strategy.Strategies;
 
 public interface IStrategiaOperazione
 {
@@ -73,42 +75,35 @@ class Program
         double num1;
         double num2;
 
-        int input;
+        RegistroUtenti.Instance.Registra("Mario");  //aggiungere l'input dell'utente
         
         Console.WriteLine("Scegli l'operazione:\n" +
             "1. Addizione\n" +
             "2. Sottrazione\n" +
             "3. Moltiplicazione\n" +
-            "4. Divisione\n" +
-            "0. Chiudi programma");
-        input = int.Parse(Console.ReadLine()!);
+            "4. Divisione\n");
+        int input = int.Parse(Console.ReadLine()!);
 
         switch (input)
         {
             case 1:
-                calcolatrice.ImpostaStrategia(new SommaStrategiaConcreta());
-                    
+                calcolatrice.ImpostaStrategia(new SommaStrategiaConcreta());                    
                 break;
 
             case 2:
-                calcolatrice.ImpostaStrategia(new SottrazioneStrategiaConcreta());
-                    
+                calcolatrice.ImpostaStrategia(new SottrazioneStrategiaConcreta());                    
                 break;
 
             case 3:
-                calcolatrice.ImpostaStrategia(new MoltiplicazioneStrategiaConcreta());
-                    
+                calcolatrice.ImpostaStrategia(new MoltiplicazioneStrategiaConcreta());                    
                 break;
 
             case 4:
-                calcolatrice.ImpostaStrategia(new DivisioneStrategiaConcreta());
-                    
-                break;
-
-            case 0:
+                calcolatrice.ImpostaStrategia(new DivisioneStrategiaConcreta());                    
                 break;
 
             default:
+                Console.WriteLine("Input non valido");
                 break;
         }
 
