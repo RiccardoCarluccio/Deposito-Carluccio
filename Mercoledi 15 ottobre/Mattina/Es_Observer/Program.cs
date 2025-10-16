@@ -1,9 +1,9 @@
-﻿public interface IObserver
+﻿public interface IObserver      //ascolta notifiche dal subject
 {
-    void Aggiorna(string messaggio);
+    void Aggiorna(string messaggio);        //Aggiorna => "Ricevi aggiornamento" o "Ricevi notifica"
 }
 
-public interface ISoggetto
+public interface ISoggetto      //chi invia la notifica - Observed
 {
     void Registra(IObserver osservatore);
     void Rimuovi(IObserver osservatore);
@@ -25,11 +25,11 @@ public class CentroMeteo : ISoggetto
         _osservatori.Remove(osservatore);
     }
 
-    public void Notifica(string messaggio)
+    public void Notifica(string messaggio)              //invia la notifica. Il suo ruolo è selezionare gli osservatori a cui far ricevere la notifica
     {
         foreach (var osservatore in _osservatori)
         {
-            osservatore.Aggiorna(messaggio);
+            osservatore.Aggiorna(messaggio);            //ricevi notifica
         }
     }
 
@@ -42,7 +42,7 @@ public class CentroMeteo : ISoggetto
 
 public class DisplayConsole : IObserver
 {
-    public void Aggiorna(string messaggio)
+    public void Aggiorna(string messaggio)              //riceve notifica
     {
         Console.WriteLine($"Aggiornamento console: {messaggio}");
     }
@@ -62,8 +62,8 @@ class Program
     {
         var centro = new CentroMeteo();
 
-        var consoleDisplay = new DisplayConsole();
-        var mobileDisplay = new DisplayMobile();
+        IObserver consoleDisplay = new DisplayConsole();
+        IObserver mobileDisplay = new DisplayMobile();
 
         centro.Registra(consoleDisplay);
         centro.Registra(mobileDisplay);

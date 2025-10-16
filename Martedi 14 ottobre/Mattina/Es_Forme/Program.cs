@@ -89,7 +89,6 @@ class Program
         else
         {
             Console.WriteLine("Invalid choice");
-        }
-        
+        }        
     }
 }
