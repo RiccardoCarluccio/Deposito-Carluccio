@@ -51,8 +51,13 @@ public sealed class DatabaseUtenti
 
     public void VisualizzaUtenti()
     {
-        foreach (var kvp in utenti)
-            Console.WriteLine($"{kvp.Key}: {kvp.Value}");
+        if (utenti.Count == 0)
+            Console.WriteLine("Non ci sono utenti registrati");
+        else
+        {
+            foreach (var kvp in utenti)
+                Console.WriteLine($"{kvp.Key}: {kvp.Value}");
+        }
     }
 
     public int PrendiUltimoId()

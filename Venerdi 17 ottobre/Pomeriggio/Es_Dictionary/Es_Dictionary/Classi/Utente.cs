@@ -16,6 +16,11 @@ public class Utente
         DataCreazione = dataCreazione;
         Stato = stato;
     }
+
+    public override string ToString()
+    {
+        return $"Username: {Username}, Email: {Email}, Stato: {Stato}, Creato il: {DataCreazione}";
+    }
 }
 
 public enum Stato

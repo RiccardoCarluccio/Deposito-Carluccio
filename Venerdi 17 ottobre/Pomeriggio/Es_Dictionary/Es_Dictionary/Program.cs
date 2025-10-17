@@ -31,8 +31,12 @@ do
             break;
 
         case 0:
+            Console.WriteLine("Chiusura programma");
+            break;
+
+        default:
+            Console.WriteLine("Input non valido");
             break;
     }
-
 }
 while (input != 0);
