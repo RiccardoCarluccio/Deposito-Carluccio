@@ -3,11 +3,15 @@ using _5_Design_Pattern.Factory;
 using _5_Design_Pattern.Singleton;
 using _5_Design_Pattern.Strategy;
 using _5_Design_Pattern.Utils;
+using static _5_Design_Pattern.Observer.Observers;
 
 var instance = CoffeeMachine.Instance;
 var beverages = BeverageMapper.ListOfBeverages;
 var ingredients = IngredientMapper.ListOfIngredients;
 var preparations = PreparationMapper.ListOfPreparations;
+
+instance.Register(new DisplayConsole());
+instance.Register(new DisplayMobile());
 
 IBeverage? beverage = null;
 
@@ -119,6 +123,7 @@ do
     }
     Console.WriteLine("");
     strategy.ExecuteStrategy(beverage);
+    instance.Notify($"Your {beverage} is ready!");      //fix the showed description
     break;
 }
 while (true);
