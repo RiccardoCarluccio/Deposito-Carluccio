@@ -40,27 +40,40 @@ class Program
     {
         IPaymentGateway? gateway = null;
 
-        Console.WriteLine("Choose your preferred payment method:\n" +
-            "1. PayPal\n" +
-            "2. Stripe");
-        int input = int.Parse(Console.ReadLine()!);
-
-        switch (input)
+        int input;
+        do
         {
-            case 1:
-                gateway = new PaypalGateway();
-                break;
+            Console.WriteLine("Choose your preferred payment method:\n" +
+            "1. PayPal\n" +
+            "2. Stripe\n" +
+            "0. Exit");
+            input = int.Parse(Console.ReadLine()!);
 
-            case 2:
-                gateway = new StripeGateway();
-                break;
+            switch (input)
+            {
+                case 1:
+                    gateway = new PaypalGateway();
+                    break;
 
-            default:
-                Console.WriteLine("Invalid input");
-                break;
+                case 2:
+                    gateway = new StripeGateway();
+                    break;
+
+                case 0:
+                    Console.WriteLine("Exiting the application");
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid input");
+                    break;
+            }
         }
-        
-        var paymentProcess = new PaymentProcess(gateway);
-        paymentProcess.Pay(25);
+        while (input != 0);
+
+        if (gateway != null)
+        {
+            var paymentProcess = new PaymentProcess(gateway);
+            paymentProcess.Pay(25);
+        }        
     }
 }
