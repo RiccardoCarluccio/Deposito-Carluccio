@@ -1,4 +1,5 @@
 ﻿using Es_Dizionari_E_Pattern.Entita;
+using Es_Dizionari_E_Pattern.Factory;
 using Es_Dizionari_E_Pattern.Observer;
 using System;
 
@@ -14,7 +15,7 @@ public sealed class BankContext : ISubject
     private int _idConto = 1;
 
     private readonly Dictionary<int, Cliente> listaClienti = new();
-    private readonly Dictionary<int, ContoCorrente> listaContiCorrente = new();
+    private readonly Dictionary<int, IConto> listaContiCorrente = new();
     private readonly Dictionary<int, List<OperazioniConto>> listaOperazioniConto = new();
 
     private readonly List<IObserver> _osservatori = new();
@@ -66,7 +67,7 @@ public sealed class BankContext : ISubject
         Console.WriteLine("");
     }
 
-    public void AggiungiConto(ContoCorrente conto)
+    public void AggiungiConto(IConto conto)
     {
         listaContiCorrente.Add(_idConto++, conto);
     }
