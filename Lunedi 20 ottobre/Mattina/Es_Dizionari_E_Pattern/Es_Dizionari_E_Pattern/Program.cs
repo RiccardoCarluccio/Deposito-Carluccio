@@ -1,4 +1,5 @@
-﻿using Es_Dizionari_E_Pattern.Singleton;
+﻿using Es_Dizionari_E_Pattern.Entita;
+using Es_Dizionari_E_Pattern.Singleton;
 
 var istanza = BankContext.Instance;
 
@@ -19,6 +20,16 @@ do
     {
         case 1:
             istanza.VisualizzaClienti();
+            break;
+
+        case 2:
+            Console.WriteLine("\nInserisci i dati del nuovo cliente:");
+            Console.Write("Nome: ");
+            string nome = Console.ReadLine()!;
+            Console.Write("Email: ");
+            string email = Console.ReadLine()!;
+            istanza.AggiungiCliente(new Cliente(nome, email));
+            Console.WriteLine($"{nome} aggiunto correttamente al database\n");
             break;
 
         case 0:

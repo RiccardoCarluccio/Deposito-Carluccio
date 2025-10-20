@@ -56,13 +56,14 @@ public sealed class BankContext : ISubject
     {
         if (listaClienti.Count == 0)
         {
-            Console.WriteLine("Nessun cliente presente in database");
+            Console.WriteLine("Nessun cliente presente in database\n");
             return;
         }
         foreach (var kvp in listaClienti)
         {
             Console.WriteLine($"ID: {kvp.Key} - Nome: {kvp.Value.Name}");
         }
+        Console.WriteLine("");
     }
 
     public void AggiungiConto(ContoCorrente conto)
