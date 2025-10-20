@@ -52,6 +52,19 @@ public sealed class BankContext : ISubject
             Console.WriteLine("Cliente non trovato");
     }
 
+    public void VisualizzaClienti()
+    {
+        if (listaClienti.Count == 0)
+        {
+            Console.WriteLine("Nessun cliente presente in database");
+            return;
+        }
+        foreach (var kvp in listaClienti)
+        {
+            Console.WriteLine($"ID: {kvp.Key} - Nome: {kvp.Value.Name}");
+        }
+    }
+
     public void AggiungiConto(ContoCorrente conto)
     {
         listaContiCorrente.Add(_idConto++, conto);
