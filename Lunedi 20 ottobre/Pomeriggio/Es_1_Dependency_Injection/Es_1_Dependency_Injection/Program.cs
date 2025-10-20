@@ -15,9 +15,9 @@ public class GreetingService
 {
     private readonly IGreeter _greeter;
 
-    public GreetingService(IGreeter greeter)
-    {
-        _greeter = greeter;
+    public GreetingService(IGreeter greeter)    //viene dichiarata una dipendenza da 'IGreeter' tramite costruttore
+    {                                           //non crea 'ConsoleGreeter' direttamente dentro di sè. Si aspetta che gli venga fornito
+        _greeter = greeter;                     //la dipendenza non è creata internamente, ma iniettata dall'esterno
     }
 
     public void GreetUser(string user)
