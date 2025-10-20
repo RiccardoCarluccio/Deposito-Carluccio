@@ -2,5 +2,6 @@
 
 public interface IConto
 {
+    double Costo { get; init; }
     void Subscribe();
 }
