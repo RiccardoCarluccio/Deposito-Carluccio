@@ -1,7 +1,10 @@
 ﻿using Es_Dizionari_E_Pattern.Entita;
 using Es_Dizionari_E_Pattern.Singleton;
+using static Es_Dizionari_E_Pattern.Observer.Observers;
 
 var istanza = BankContext.Instance;
+
+istanza.Registra(new EmailObserver());
 
 int input;
 do
@@ -29,7 +32,14 @@ do
             Console.Write("Email: ");
             string email = Console.ReadLine()!;
             istanza.AggiungiCliente(new Cliente(nome, email));
-            Console.WriteLine($"{nome} aggiunto correttamente al database\n");
+            istanza.Notifica($"{nome} aggiunto correttamente al database\n");
+            break;
+
+        case 3:
+            Console.WriteLine("\nInserisci l'id del cliente da rimuovere");
+            int id = int.Parse(Console.ReadLine()!);
+            istanza.RimuoviCliente(id);
+            istanza.Notifica($"L'utente con id: '{id}' è stato rimosso");
             break;
 
         case 0:
