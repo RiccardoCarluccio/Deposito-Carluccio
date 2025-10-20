@@ -1,8 +1,10 @@
 ﻿using Es_Dizionari_E_Pattern.Entita;
+using Es_Dizionari_E_Pattern.Observer;
+using System;
 
 namespace Es_Dizionari_E_Pattern.Singleton;
 
-public sealed class BankContext
+public sealed class BankContext : ISubject
 {
     private static BankContext _instance;
     
@@ -14,6 +16,8 @@ public sealed class BankContext
     private readonly Dictionary<int, Cliente> listaClienti = new();
     private readonly Dictionary<int, ContoCorrente> listaContiCorrente = new();
     private readonly Dictionary<int, List<OperazioniConto>> listaOperazioniConto = new();
+
+    private readonly List<IObserver> _osservatori = new();
 
     private BankContext() { }
 
@@ -64,5 +68,21 @@ public sealed class BankContext
     public void AggiungiOperazione(int id, ContoCorrente conto)
     {
         //TODO
+    }
+
+    public void Registra(IObserver osservatore)
+    {
+        _osservatori.Add(osservatore);
+    }
+
+    public void Rimuovi(IObserver osservatore)
+    {
+        _osservatori.Remove(osservatore);
+    }
+
+    public void Notifica(string messaggio)
+    {
+        foreach (var osservatore in _osservatori)
+            osservatore.Aggiorna(messaggio);
     }
 }
