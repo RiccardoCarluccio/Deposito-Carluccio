@@ -8,11 +8,12 @@ public sealed class BankContext
     
     private static object _lock = new object();
 
-    private int _idIncrementale = 1;
+    private int _idUtente = 1;
+    private int _idConto = 1;
 
     private readonly Dictionary<int, Cliente> listaClienti = new();
-
     private readonly Dictionary<int, ContoCorrente> listaContiCorrente = new();
+    private readonly Dictionary<int, List<OperazioniConto>> listaOperazioniConto = new();
 
     private BankContext() { }
 
@@ -36,11 +37,32 @@ public sealed class BankContext
 
     public void AggiungiCliente(Cliente cliente)
     {
-        listaClienti.Add(_idIncrementale++, cliente);
+        listaClienti.Add(_idUtente++, cliente);
     }
 
     public void RimuoviCliente(int id)
     {
+        if (listaClienti.ContainsKey(id))
+            listaClienti.Remove(id);
+        else
+            Console.WriteLine("Cliente non trovato");
+    }
 
+    public void AggiungiConto(ContoCorrente conto)
+    {
+        listaContiCorrente.Add(_idConto++, conto);
+    }
+
+    public void RimuoviConto(int id)
+    {
+        if (listaContiCorrente.ContainsKey(id))
+            listaContiCorrente.Remove(id);
+        else
+            Console.WriteLine("Conto non trovato");
+    }
+
+    public void AggiungiOperazione(int id, ContoCorrente conto)
+    {
+        //TODO
     }
 }
