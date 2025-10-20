@@ -1,10 +1,13 @@
 ﻿using Es_Dizionari_E_Pattern.Entita;
+using Es_Dizionari_E_Pattern.Factory;
 using Es_Dizionari_E_Pattern.Singleton;
 using static Es_Dizionari_E_Pattern.Observer.Observers;
 
 var istanza = BankContext.Instance;
 
 istanza.Registra(new EmailObserver());
+
+IConto? conto = null;
 
 int input;
 do
@@ -40,6 +43,19 @@ do
             int id = int.Parse(Console.ReadLine()!);
             istanza.RimuoviCliente(id);
             istanza.Notifica($"L'utente con id: '{id}' è stato rimosso");
+            break;
+
+        case 4:
+            //aggiungere il conto alla proprietà 'Conto' del 'Cliente'
+            //Console.Write("Seleziona l'id del cliente per cui aggiungere un conto: ");
+            //int idCliente = int.Parse(Console.ReadLine()!);
+            Console.WriteLine("Scegli il tipo di conto da aprire:\n" +      //richiedere l'input in caso di input non valido
+                "Base\n" +
+                "Premium\n" +
+                "Studente");
+            string sceltaConto = Console.ReadLine()!;
+            conto = ContoFactory.ApriConto(sceltaConto);
+            istanza.AggiungiConto(conto);
             break;
 
         case 0:
