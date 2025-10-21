@@ -18,4 +18,36 @@ public class OrderService
         _inventoryService = inventoryService;
         _paymentProcessor = paymentProcessor;
     }
+
+    public void GetStock(string type)
+    {
+        _inventoryService.GetAvailability(type);
+    }
+
+    public void Pay()
+    {
+        _paymentProcessor.ExecutePayment();
+    }
+
+    public void Notify(string message)
+    {
+        if ( _notificationSender == null )
+        {
+            Console.WriteLine("Notifiche disabilitate");
+            return;
+        }
+        _notificationSender.SendNotification(message);
+        Console.WriteLine("Notifica inviata");
+    }
+
+    public void Pricing(double price)
+    {
+        if (_pricingStrategy == null)
+        {
+            Console.WriteLine("Prezzo non trovato");
+            return;
+        }
+        _pricingStrategy.Price(price);
+        Console.WriteLine("Prezzo ufficiale");
+    }
 }
