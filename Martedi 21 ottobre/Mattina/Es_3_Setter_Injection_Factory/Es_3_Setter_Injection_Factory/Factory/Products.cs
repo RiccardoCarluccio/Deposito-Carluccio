@@ -2,15 +2,15 @@
 
 public class Products
 {
-    public class DigitalBook : IProduct
-    {
-        public string Title { get; set; }
-        public double Price { get; set; }
-    }
-
     public class PrintedBook : IProduct
     {
-        public string Title { get; set; }
-        public double Price { get; set; }
+        public string Title { get; set; } = "Libro Stampato";
+        public double Price { get; set; } = 25;
+    }
+
+    public class DigitalBook : IProduct
+    {
+        public string Title { get; set; } = "Libro Digitale";
+        public double Price { get; set; } = 10;
     }
 }
