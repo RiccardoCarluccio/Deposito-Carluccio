@@ -16,11 +16,11 @@ public class InventoryService : IInventoryService
     {
         switch (type)
         {
-            case "printed":
+            case "fisico":
                 Console.WriteLine($"{type} non è al momento disponibile");
                 return false;
 
-            case "digital":
+            case "digitale":
                 Console.WriteLine($"{type} è disponibile");
                 return true;
 

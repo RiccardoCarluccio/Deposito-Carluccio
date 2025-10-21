@@ -21,7 +21,7 @@ public class OrderService
 
     public void GetStock(string type)
     {
-        _inventoryService.GetAvailability(type);
+        Console.WriteLine(_inventoryService.GetAvailability(type));
     }
 
     public void Pay()

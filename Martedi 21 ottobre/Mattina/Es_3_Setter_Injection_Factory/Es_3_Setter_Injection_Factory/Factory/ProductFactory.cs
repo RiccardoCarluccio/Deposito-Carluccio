@@ -8,10 +8,10 @@ public abstract class ProductFactory
     {
         switch (type.Trim().ToLower())
         {
-            case "printed":
+            case "fisico":
                 return new PrintedBook();
 
-            case "digital":
+            case "digitale":
                 return new DigitalBook();
 
             default:
