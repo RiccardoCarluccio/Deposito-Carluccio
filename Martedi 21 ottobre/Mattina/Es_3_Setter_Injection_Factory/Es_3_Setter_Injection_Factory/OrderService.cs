@@ -19,19 +19,22 @@ public class OrderService
         _paymentProcessor = paymentProcessor;
     }
 
-    public void GetStock(string type)
+    public bool GetStock(string type)
     {
-        Console.WriteLine(_inventoryService.GetAvailability(type));
+        return _inventoryService.GetAvailability(type);
     }
 
-    public void Pay()
+    public void Pay(bool availability)
     {
-        _paymentProcessor.ExecutePayment();
+        if (availability)
+            _paymentProcessor.ExecutePayment();
+        else
+            _paymentProcessor.FailPayment();
     }
 
     public void Notify(string message)
     {
-        if ( _notificationSender == null )
+        if (_notificationSender == null )
         {
             Console.WriteLine("Notifiche disabilitate");
             return;

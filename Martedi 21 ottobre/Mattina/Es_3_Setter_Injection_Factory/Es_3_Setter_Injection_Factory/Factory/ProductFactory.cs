@@ -15,7 +15,7 @@ public abstract class ProductFactory
                 return new DigitalBook();
 
             default:
-                Console.WriteLine("Invalid type");
+                Console.WriteLine("Tipo di libro non valido");
                 return null;
         }
     }

@@ -8,6 +8,7 @@ public interface IInventoryService
 public interface IPaymentProcessor
 {
     void ExecutePayment();
+    void FailPayment();
 }
 
 public class InventoryService : IInventoryService
@@ -37,5 +38,11 @@ public class PaymentProcessor : IPaymentProcessor
     {
         Console.WriteLine("Reindirizzamento a PayPal in corso...");
         Console.WriteLine("Pagamento eseguito con successo");
+    }
+
+    public void FailPayment()
+    {
+        Console.WriteLine("Reindirizzamento a PayPal in corso...");
+        Console.WriteLine("Pagamento fallito");
     }
 }
