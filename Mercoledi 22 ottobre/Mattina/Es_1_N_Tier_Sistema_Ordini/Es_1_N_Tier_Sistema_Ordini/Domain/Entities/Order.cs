@@ -2,7 +2,7 @@
 
 public class Order
 {
-    public Guid Id { get; set; } = Guid.CreateVersion7();
+    public Guid Id { get; set; } = Guid.NewGuid();
     public required Customer Customer { get; set; }
     public required List<OrderItem> Items { get; set; }
     public OrderStatus Status { get; private set; } = OrderStatus.New;
