@@ -7,8 +7,8 @@ public class Order
     public required List<OrderItem> Items { get; set; }
     public OrderStatus Status { get; private set; } = OrderStatus.New;
 
-    public void AddOrderItem(OrderItem item, int quantity)
+    public void AddOrderItem(Product item, int quantity)
     {
-        Items.Add(item);
+        Items.Add(new OrderItem(item, quantity));
     }
 }
