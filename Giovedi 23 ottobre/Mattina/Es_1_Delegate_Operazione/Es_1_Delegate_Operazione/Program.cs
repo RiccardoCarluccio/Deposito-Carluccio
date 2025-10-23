@@ -1,6 +1,4 @@
-﻿using System.Data;
-
-class Program
+﻿class Program
 {
     delegate int Operazione(int a, int b);
 
